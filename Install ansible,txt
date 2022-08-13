@@ -1,0 +1,29 @@
+sudo apt-get install python3
+
+
+Installing Ansible on Master:
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+On master:
+ssh-keygen
+sudo cat ./.ssh/id_rsa.pub
+copy
+
+On slave:
+sudo nano ./.ssh/authorized_keys
+
+On master:
+$ ssh ubuntu@<ip address>
+exit
+$ sudo nano /etc/ansible/hosts
+[servers]
+server1 ansible_host=<slave-ip-address>
+
+$ ansible -m ping all
+
+$ mkdir ansible
+$ cd ansible
+$ sudo nano play.yml
